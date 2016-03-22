@@ -2,11 +2,13 @@ var React = require('react');
 var List = require('./List.jsx');
 
 //this.state is used when data could change (immutable)
-var ListManager = react.createClass({
-    getInitialState: function(){
+var ListManager = React.createClass({
+    getInitialState: function() {
         return {items: [], newItemText: ''};
     },
-
+    onChange: function(e) {
+        this.setState({newItemText: e.target.value});
+    },
     handleSubmit: function(e) {
         e.preventDefault();
 
@@ -33,3 +35,5 @@ var ListManager = react.createClass({
     }
 
 });
+
+module.exports = ListManager;

@@ -1,7 +1,7 @@
 var React = require('react');
 var ListItem = require('./ListItem.jsx');
 
-var List = react.createClass({
+var List = React.createClass({
     render: function() {
 
         var createItem = function(text, index) {
