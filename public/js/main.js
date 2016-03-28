@@ -19110,12 +19110,17 @@ var ListManager = React.createClass({
         //onChange is called with every keystroke so we can store the most recent data entered
         //value is what he user sees on the input-box...we point this to newItemText so it updates on every keystroke
         //below use className instead of just class because react confused it with createClass
+
+        var divStyle = {
+            marginTop: 10
+        };
+
         return React.createElement(
             'div',
-            { className: 'col-sm-4' },
+            { style: divStyle, className: 'col-sm-3' },
             React.createElement(
                 'div',
-                { className: 'panel panel-default' },
+                { className: 'panel panel-success' },
                 React.createElement(
                     'div',
                     { className: 'panel-heading' },
@@ -19127,15 +19132,23 @@ var ListManager = React.createClass({
                 ),
                 React.createElement(
                     'div',
-                    { className: 'panel-body' },
+                    { className: 'row panel-body' },
                     React.createElement(
                         'form',
                         { onSubmit: this.handleSubmit },
-                        React.createElement('input', { className: 'form-control', onChange: this.onChange, value: this.state.newItemText }),
                         React.createElement(
-                            'button',
-                            { className: 'btn btn-primary' },
-                            'Add'
+                            'div',
+                            { className: 'col-sm-9' },
+                            React.createElement('input', { className: 'form-control', onChange: this.onChange, value: this.state.newItemText })
+                        ),
+                        React.createElement(
+                            'div',
+                            { className: 'col-sm-2' },
+                            React.createElement(
+                                'button',
+                                { className: 'btn btn-primary' },
+                                'Add'
+                            )
                         )
                     ),
                     React.createElement(List, { items: this.state.items })

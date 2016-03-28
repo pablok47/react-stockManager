@@ -29,16 +29,25 @@ var ListManager = React.createClass({
         //onChange is called with every keystroke so we can store the most recent data entered
         //value is what he user sees on the input-box...we point this to newItemText so it updates on every keystroke
         //below use className instead of just class because react confused it with createClass
+
+        var divStyle = {
+            marginTop: 10
+        }
+
         return (
-          <div className="col-sm-4">
-              <div className="panel panel-default">
+          <div style={divStyle} className="col-sm-3">
+              <div className="panel panel-success">
                   <div className="panel-heading">
                       <h3>{this.props.title}</h3>
                   </div>
-                  <div className="panel-body">
+                  <div className="row panel-body">
                       <form onSubmit={this.handleSubmit}>
-                          <input className="form-control" onChange={this.onChange} value={this.state.newItemText} />
-                          <button className="btn btn-primary">Add</button>
+                          <div className="col-sm-9">
+                              <input className="form-control" onChange={this.onChange} value={this.state.newItemText} />
+                          </div>
+                          <div className="col-sm-2">
+                              <button className="btn btn-primary">Add</button>
+                          </div>
                       </form>
                       <List items={this.state.items} />
                   </div>
