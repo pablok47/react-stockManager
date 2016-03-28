@@ -19150,9 +19150,9 @@ var ListManager = React.createClass({
                                 'Add'
                             )
                         )
-                    ),
-                    React.createElement(List, { items: this.state.items })
-                )
+                    )
+                ),
+                React.createElement(List, { items: this.state.items })
             )
         );
     }
@@ -19167,5 +19167,7 @@ var ReactDOM = require('react-dom'); //react-dom renders items to the screen
 var ListManager = require('./components/ListManager.jsx');
 
 ReactDOM.render(React.createElement(ListManager, { title: 'Stock Manager' }), document.getElementById('stocks'));
+ReactDOM.render(React.createElement(ListManager, { title: 'ETF Manager' }), document.getElementById('etfs'));
+ReactDOM.render(React.createElement(ListManager, { title: 'Fund Manager' }), document.getElementById('funds'));
 
 },{"./components/ListManager.jsx":161,"react":158,"react-dom":29}]},{},[162]);
