@@ -19032,6 +19032,49 @@ module.exports = require('./lib/React');
 
 },{"./lib/React":53}],159:[function(require,module,exports){
 var React = require('react');
+
+var Clock = React.createClass({
+  displayName: 'Clock',
+
+  getInitialState: function () {
+    return { hours: '', minutes: '', seconds: '' };
+  },
+
+  tick: function () {
+    var now = new Date();
+    var h = now.getHours();
+    var m = ('0' + now.getMinutes()).slice(-2);
+    var s = ('0' + now.getSeconds()).slice(-2);
+
+    this.setState({ hours: h, minutes: m, seconds: s });
+  },
+
+  componentDidMount: function () {
+    this.interval = setInterval(this.tick, 1000);
+  },
+
+  componentWillUnmount: function () {
+    clearInterval(this.interval);
+  },
+
+  render: function () {
+    return React.createElement(
+      'div',
+      null,
+      this.state.hours,
+      ':',
+      this.state.minutes,
+      ':',
+      this.state.seconds
+    );
+  }
+
+});
+
+module.exports = Clock;
+
+},{"react":158}],160:[function(require,module,exports){
+var React = require('react');
 var ListItem = require('./ListItem.jsx');
 
 var List = React.createClass({
@@ -19053,7 +19096,7 @@ var List = React.createClass({
 
 module.exports = List;
 
-},{"./ListItem.jsx":160,"react":158}],160:[function(require,module,exports){
+},{"./ListItem.jsx":161,"react":158}],161:[function(require,module,exports){
 var React = require('react');
 
 //creating ListItem here...defining the ListItem Class....
@@ -19077,7 +19120,7 @@ var ListItem = React.createClass({
 
 module.exports = ListItem;
 
-},{"react":158}],161:[function(require,module,exports){
+},{"react":158}],162:[function(require,module,exports){
 var React = require('react');
 var List = require('./List.jsx');
 
@@ -19161,14 +19204,17 @@ var ListManager = React.createClass({
 
 module.exports = ListManager;
 
-},{"./List.jsx":159,"react":158}],162:[function(require,module,exports){
+},{"./List.jsx":160,"react":158}],163:[function(require,module,exports){
 var React = require('react');
 var ReactDOM = require('react-dom'); //react-dom renders items to the screen
 var ListManager = require('./components/ListManager.jsx');
+var Clock = require('./components/Clock.jsx');
 
 //copy and pasted the top line below to create more lists
 ReactDOM.render(React.createElement(ListManager, { title: 'Stock Manager' }), document.getElementById('stocks'));
 ReactDOM.render(React.createElement(ListManager, { title: 'ETF Manager' }), document.getElementById('etfs'));
 ReactDOM.render(React.createElement(ListManager, { title: 'Fund Manager' }), document.getElementById('funds'));
 
-},{"./components/ListManager.jsx":161,"react":158,"react-dom":29}]},{},[162]);
+ReactDOM.render(React.createElement(Clock, { title: 'Time' }), document.getElementById('clock'));
+
+},{"./components/Clock.jsx":159,"./components/ListManager.jsx":162,"react":158,"react-dom":29}]},{},[163]);
