@@ -19059,13 +19059,25 @@ var Clock = React.createClass({
 
   render: function () {
     return React.createElement(
-      'div',
-      null,
-      this.state.hours,
-      ':',
-      this.state.minutes,
-      ':',
-      this.state.seconds
+      'nav',
+      { className: 'navbar navbar-default' },
+      React.createElement(
+        'div',
+        { className: 'navbar-header' },
+        React.createElement(
+          'div',
+          null,
+          React.createElement(
+            'h3',
+            null,
+            this.state.hours,
+            ':',
+            this.state.minutes,
+            ':',
+            this.state.seconds
+          )
+        )
+      )
     );
   }
 

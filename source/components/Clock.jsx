@@ -24,7 +24,13 @@ var Clock = React.createClass({
 
     render: function() {
       return (
-          <div>{this.state.hours}:{this.state.minutes}:{this.state.seconds}</div>
+        <nav className="navbar navbar-default">
+            <div className="navbar-header">
+                  <div>
+                      <h3>{this.state.hours}:{this.state.minutes}:{this.state.seconds}</h3>
+                  </div>
+            </div>
+        </nav>
       );
     }
 
