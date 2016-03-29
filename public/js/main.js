@@ -19045,8 +19045,12 @@ var Clock = React.createClass({
     var h = now.getHours();
     var m = ('0' + now.getMinutes()).slice(-2);
     var s = ('0' + now.getSeconds()).slice(-2);
+    var meridiem = "am";
+    if (h >= 12) {
+      meridiem = "pm";
+    }
 
-    this.setState({ hours: h, minutes: m, seconds: s });
+    this.setState({ hours: h, minutes: m, seconds: s, day: meridiem });
   },
 
   componentDidMount: function () {
@@ -19058,6 +19062,7 @@ var Clock = React.createClass({
   },
 
   render: function () {
+
     return React.createElement(
       'nav',
       { className: 'navbar navbar-default' },
@@ -19074,7 +19079,8 @@ var Clock = React.createClass({
             ':',
             this.state.minutes,
             ':',
-            this.state.seconds
+            this.state.seconds,
+            this.state.day
           )
         )
       )
