@@ -19220,15 +19220,97 @@ module.exports = ListManager;
 
 },{"./List.jsx":160,"react":158}],163:[function(require,module,exports){
 var React = require('react');
+var List = require('./List.jsx');
+var ListManager = require('./ListManager.jsx');
+
+var Notes = React.createClass({
+    displayName: 'Notes',
+
+    getInitialState: function () {
+        return { items: [], newItemText: '' };
+    },
+    onChange: function (e) {
+        //update the state property every time a keystroke is typed
+        this.setState({ newItemText: e.target.value });
+    },
+    handleSubmit: function (e) {
+        //stop the button from getting clicks since we are using onSubmit
+        e.preventDefault();
+
+        //grabs the current list of items
+        var currentItems = this.state.items;
+
+        //adds new item to the list
+        currentItems.push(this.state.newItemText);
+
+        //updates the main item list with the new list and clears the newItemText
+        this.setState({ items: currentItems, newItemText: '' });
+    },
+
+    render: function () {
+
+        return React.createElement(
+            'div',
+            { className: 'col-md-12' },
+            React.createElement(
+                'div',
+                { className: 'jumbotron' },
+                React.createElement(
+                    'div',
+                    null,
+                    React.createElement(
+                        'h1',
+                        null,
+                        this.props.title
+                    )
+                ),
+                React.createElement(
+                    'div',
+                    { className: 'row' },
+                    React.createElement(
+                        'form',
+                        { onSubmit: this.handleSubmit },
+                        React.createElement(
+                            'div',
+                            { className: 'col-md-9' },
+                            React.createElement('input', { className: 'form-control', onChange: this.onChange, value: this.state.newItemText })
+                        ),
+                        React.createElement(
+                            'div',
+                            { className: 'col-md-2' },
+                            React.createElement(
+                                'button',
+                                { className: 'btn btn-primary' },
+                                'Add'
+                            )
+                        )
+                    )
+                ),
+                React.createElement(List, { items: this.state.items })
+            )
+        ) //div for col-md-12
+
+        ;
+    }
+
+});
+
+module.exports = Notes;
+
+},{"./List.jsx":160,"./ListManager.jsx":162,"react":158}],164:[function(require,module,exports){
+var React = require('react');
 var ReactDOM = require('react-dom'); //react-dom renders items to the screen
 var ListManager = require('./components/ListManager.jsx');
 var Clock = require('./components/Clock.jsx');
+var Notes = require('./components/Notes.jsx');
 
 //copy and pasted the top line below to create more lists
 ReactDOM.render(React.createElement(ListManager, { title: 'Stocks List' }), document.getElementById('stocks'));
 ReactDOM.render(React.createElement(ListManager, { title: 'ETFs List' }), document.getElementById('etfs'));
 ReactDOM.render(React.createElement(ListManager, { title: 'Funds List' }), document.getElementById('funds'));
 
+ReactDOM.render(React.createElement(Notes, { title: 'Note Pad' }), document.getElementById('notes'));
+
 ReactDOM.render(React.createElement(Clock, { title: 'Time' }), document.getElementById('clock'));
 
-},{"./components/Clock.jsx":159,"./components/ListManager.jsx":162,"react":158,"react-dom":29}]},{},[163]);
+},{"./components/Clock.jsx":159,"./components/ListManager.jsx":162,"./components/Notes.jsx":163,"react":158,"react-dom":29}]},{},[164]);
