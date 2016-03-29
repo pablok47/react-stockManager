@@ -28,14 +28,15 @@ var Clock = React.createClass({
 
     render: function() {
 
+      var navStyle = {
+        marginTop: 15
+      }
+
       return (
-        <nav className="navbar navbar-default">
-            <div className="navbar-header">
-                  <div>
-                      <h3>{this.state.hours}:{this.state.minutes}:{this.state.seconds}{this.state.day}</h3>
-                  </div>
-            </div>
-        </nav>
+          <div style={navStyle}>
+              <h4>{this.state.hours}:{this.state.minutes}:{this.state.seconds}{this.state.day}</h4>
+          </div>
+
       );
     }
 

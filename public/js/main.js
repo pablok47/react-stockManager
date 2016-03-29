@@ -19063,26 +19063,22 @@ var Clock = React.createClass({
 
   render: function () {
 
+    var navStyle = {
+      marginTop: 15
+    };
+
     return React.createElement(
-      'nav',
-      { className: 'navbar navbar-default' },
+      'div',
+      { style: navStyle },
       React.createElement(
-        'div',
-        { className: 'navbar-header' },
-        React.createElement(
-          'div',
-          null,
-          React.createElement(
-            'h3',
-            null,
-            this.state.hours,
-            ':',
-            this.state.minutes,
-            ':',
-            this.state.seconds,
-            this.state.day
-          )
-        )
+        'h4',
+        null,
+        this.state.hours,
+        ':',
+        this.state.minutes,
+        ':',
+        this.state.seconds,
+        this.state.day
       )
     );
   }
@@ -19229,9 +19225,9 @@ var ListManager = require('./components/ListManager.jsx');
 var Clock = require('./components/Clock.jsx');
 
 //copy and pasted the top line below to create more lists
-ReactDOM.render(React.createElement(ListManager, { title: 'Stock Manager' }), document.getElementById('stocks'));
-ReactDOM.render(React.createElement(ListManager, { title: 'ETF Manager' }), document.getElementById('etfs'));
-ReactDOM.render(React.createElement(ListManager, { title: 'Fund Manager' }), document.getElementById('funds'));
+ReactDOM.render(React.createElement(ListManager, { title: 'Stocks List' }), document.getElementById('stocks'));
+ReactDOM.render(React.createElement(ListManager, { title: 'ETFs List' }), document.getElementById('etfs'));
+ReactDOM.render(React.createElement(ListManager, { title: 'Funds List' }), document.getElementById('funds'));
 
 ReactDOM.render(React.createElement(Clock, { title: 'Time' }), document.getElementById('clock'));
 
