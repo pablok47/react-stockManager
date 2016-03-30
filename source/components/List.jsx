@@ -12,8 +12,7 @@ var List = React.createClass({
             <ul>
                 {this.props.items.map(createItem)}
             </ul>
-        )
-
+        );
     }
 });
 
