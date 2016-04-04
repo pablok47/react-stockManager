@@ -19117,18 +19117,30 @@ var React = require('react');
 //items inside the curly brackets is JS...this.props.text is js expression where props is an object for properties and text the key...here we are assuming that there will be properties and one will be text
 //...inside the () is the jsx which is js + html.
 var ListItem = React.createClass({
-    displayName: 'ListItem',
+    displayName: "ListItem",
 
+
+    onClick: function (e) {
+        e.stopPropagation();
+        //  var removeItems = this.state.items;
+
+        //  removeItems.splice(this.state.items);
+    },
 
     render: function () {
 
         return React.createElement(
-            'li',
+            "li",
             null,
             React.createElement(
-                'h4',
+                "h4",
                 null,
                 this.props.text
+            ),
+            React.createElement(
+                "button",
+                { className: "destroy", onClick: this.onClick },
+                "Remove"
             )
         );
     }
