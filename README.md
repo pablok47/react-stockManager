@@ -11,6 +11,6 @@ This react app is a Stock Manager.  It will be an application where one could ke
 The app is like a shopping list app only the list contains stocks of companies one likes instead of shopping items.
 
 Features besides list feature includes:
-Digital Clock
+Digital clock
 Note Pad
 Nav Bar with link to Yahoo's Financials Website set to the Logo on the top left corner of the nav bar.
