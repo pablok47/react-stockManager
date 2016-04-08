@@ -29,7 +29,7 @@ var Clock = React.createClass({
     render: function() {
 
       var navStyle = {
-        marginTop: 15
+        marginTop: 100
       }
 
       return (

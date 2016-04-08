@@ -23935,14 +23935,9 @@ var Base = React.createClass({
             React.createElement(
                 'h1',
                 null,
-                'Header'
+                '$tock Manager'
             ),
-            this.props.children,
-            React.createElement(
-                'h1',
-                null,
-                'Footer'
-            )
+            this.props.children
         );
     }
 });

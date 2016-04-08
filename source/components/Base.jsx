@@ -4,10 +4,10 @@ var Base = React.createClass({
     render: function() {
         return (
           <div>
-
+              <h3>$tock Manager</h3>
               {this.props.children}
           </div>
-        )
+        );
     }
 });
 
