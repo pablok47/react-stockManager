@@ -4,9 +4,8 @@ var Base = React.createClass({
     render: function() {
         return (
           <div>
-              <h1>Header</h1>
+              <h1>$tock Manager</h1>
               {this.props.children}
-              <h1>Footer</h1>
           </div>
         )
     }
