@@ -24012,7 +24012,8 @@ var Clock = React.createClass({
   render: function () {
 
     var navStyle = {
-      marginTop: 100
+      marginTop: 25,
+      marginBottom: 10
     };
 
     return React.createElement(
