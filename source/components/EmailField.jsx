@@ -9,8 +9,8 @@ var EmailField = React.createClass({
     onChange: function(e) {
         var val = e.target.value;
 
-        if (!validator(e.target.value)) {
-          this.setState({valid: false, value: e.target.value})
+        if (!validator.validate(e.target.value)) {
+          this.setState({valid: false, value: e.target.value});
         } else {
           this.setState({valid: true, value: e.target.value});
         }
